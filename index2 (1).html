@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Adventure Tales</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f1ea;
+            color: #333;
+        }
+
+        .navbar {
+            background-color: #263b2b;
+            padding: 20px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar h1 {
+            color: white;
+            font-size: 25px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .nav-links a:hover {
+            color: #d9b44a;
+            text-decoration: underline;
+        }
+
+        main {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .hero {
+            min-height: 450px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            background:
+                linear-gradient(
+                    rgba(217, 223, 200, 0.90),
+                    rgba(238, 230, 210, 0.90)
+                ),
+                url("https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+            background-position: center;
+
+            padding: 60px 20px;
+        }
+
+        .hero-content {
+            max-width: 750px;
+        }
+
+        .hero h2 {
+            font-size: 45px;
+            margin-bottom: 20px;
+            color: #263b2b;
+        }
+
+        .hero p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .hero button {
+            margin-top: 25px;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 5px;
+            background-color: #263b2b;
+            color: white;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .hero button:hover {
+            background-color: #3f5d43;
+        }
+
+        .about {
+            padding: 70px 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            background-color: white;
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .about-content h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #263b2b;
+        }
+
+        .about-content p {
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .stories {
+            padding: 70px 60px;
+        }
+
+        .stories h2 {
+            font-size: 35px;
+            color: #263b2b;
+        }
+
+        .section-description {
+            margin-top: 10px;
+            margin-bottom: 40px;
+        }
+
+        .story-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .story-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+
+            box-shadow:
+                0 4px 10px rgba(0, 0, 0, 0.10);
+
+            transition:
+                transform 0.3s,
+                box-shadow 0.3s;
+
+            display: flex;
+            flex-direction: column;
+        }
+
+        .story-card:hover {
+            transform: translateY(-8px);
+
+            box-shadow:
+                0 8px 18px rgba(0, 0, 0, 0.18);
+        }
+
+        .story-card img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .story-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .story-card h3 {
+            font-size: 21px;
+            margin-bottom: 12px;
+            color: #263b2b;
+        }
+
+        .story-card p {
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .story-card button {
+            align-self: flex-start;
+
+            padding: 10px 18px;
+
+            border: none;
+            border-radius: 5px;
+
+            background-color: #263b2b;
+            color: white;
+
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .story-card button:hover {
+            background-color: #d9a441;
+        }
+
+        footer {
+            background-color: #263b2b;
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        @media (max-width: 800px) {
+
+            .navbar {
+                padding: 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .navbar h1 {
+                font-size: 28px;
+            }
+
+            .nav-links {
+                gap: 30px;
+            }
+
+            .hero {
+                min-height: 400px;
+            }
+
+            .hero h2 {
+                font-size: 35px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+                padding: 50px 25px;
+            }
+
+            .stories {
+                padding: 50px 25px;
+            }
+
+            .story-container {
+                grid-template-columns: 1fr;
+            }
+
+            .story-card img {
+                height: 230px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <h1>INSPIRING STORIES</h1>
+
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#stories">Stories</a>
+        </div>
+
+    </nav>
+
+    <main>
+
+        <section class="hero" id="home">
+
+            <div class="hero-content">
+
+                <h2>DISCOVER STORIES THAT INSPIRE</h2>
+
+                <p>
+                    Explore meaningful stories, inspiring books, and valuable lessons
+    that can help you see life from different perspectives.
+                </p>
+
+                <button onclick="location.href='#stories'">
+                    Explore Stories
+                </button>
+
+            </div>
+
+        </section>
+
+        <section class="about" id="about">
+
+            <div class="about-image">
+
+                <img
+                    src="books.jpg"
+                    alt="books">
+
+            </div>
+
+            <div class="about-content">
+
+                <h2>About Stories & Lessons</h2>
+
+                <p>
+                    This website features different books and stories that share
+    meaningful ideas about life, friendship, dreams, personal growth,
+    and the importance of making good choices.
+                </p>
+
+                <p>
+                    Each story offers something different to learn and gives readers
+    a chance to discover new ideas, perspectives, and lessons that
+    they can apply in everyday life.
+                </p>
+
+            </div>
+
+        </section>
+
+        <section class="stories" id="stories">
+
+            <h2>Featured Stories</h2>
+
+            <p class="section-description">
+                Choose a story and lesson.
+            </p>
+
+            <div class="story-container">
+
+                <div class="story-card">
+
+                    <img
+                        src="ima1.jpg"
+                        alt="ima1">
+
+                    <div class="story-content">
+
+                        <h3>The Alchemist</h3>
+
+                        <p>
+                            The Alchemist encourages readers to follow
+                            their dreams, passion, and destiny. It
+                            teaches that trusting yourself and pursuing
+                            your dreams can lead to self-discovery
+                            and growth.
+                        </p>
+
+                        <button>Read More</button>
+
+                    </div>
+
+                </div>
+
+                <div class="story-card">
+
+                    <img
+                        src="ima2.jpg"
+                        alt="ima2">
+
+                    <div class="story-content">
+
+                        <h3>No Man is an island</h3>
+
+                        <p>
+                            No Man Is an Island teaches that people
+                            need connection, love, and community to
+                            live a meaningful life. It also emphasizes
+                            sincerity, mercy, and personal growth.
+                            
+                        </p>
+
+                        <button>Read More</button>
+
+                    </div>
+
+                </div>
+
+                <div class="story-card">
+
+                    <img
+                        src="ima3.jpg"
+                        alt="ima3">
+
+                    <div class="story-content">
+
+                        <h3>  A Million Miles in a Thousand Years</h3>
+</h3>
+
+                        <p>
+                      
+                            A Million Miles in a Thousand Years teaches
+                            that a meaningful life requires intentional
+                            choices, courage, and taking risks instead
+                            of simply waiting for things to happen.
+                        </p>
+
+                        <button>Read More</button>
+
+                    </div>
+
+                </div>
+
+                <div class="story-card">
+
+                    <img
+                        src="ima4.jpg"
+                        alt="ima4">
+
+                    <div class="story-content">
+
+                        <h3>
+                            Let’s Learn About the Forest: A Seek-and-Find Story Through God’s Creation
+                        </h3>
+
+                        <p>
+                            A seek-and-find board book where children help Mama Chipmunk explore the forest, discovering woodland creatures while learning about God's creation.
+                        </p>
+
+                        <button>Read More</button>
+
+                    </div>
+
+                </div>
+
+                <div class="story-card">
+
+                    <img
+                        src="ima5.jpg"
+                        alt="ima5">
+
+                    <div class="story-content">
+
+                        <h3>Adventure Time</h3>
+
+                        <p>
+                            
+                            Adventure Time is not only about adventure.
+                            It is also about friendship, teamwork,
+                            strategies, and caring for the people
+                            around you.
+                        </p>
+
+                        <button>Read More</button>
+
+                    </div>
+
+                </div>
+
+                <div class="story-card">
+
+                    <img
+                        src="ima6.jpg"
+                        alt="ima6">
+
+                    <div class="story-content">
+
+                        <h3>Atomic Habits</h3>
+                        <p>
+                            Atomic Habits teaches that small, consistent improvements can create major results over time. It focuses on building good habits through simple systems and breaking bad habits by making them less obvious, attractive, easy, and satisfying.
+                        </p>
+
+                        <button>Read More</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <p>
+            Adventure Tales | HTML and CSS Assignment
+        </p>
+
+    </footer>
+
+</body>
+</html>
